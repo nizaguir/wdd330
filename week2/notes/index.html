@@ -1,17 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css">
+    <title>Week 2 Notes</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Week 2 Notes</title>
-</head>
+  <body>
+    <h2>Reading</h2>
+    <!-- <h3>Ch2: Programming basics</h3> -->
+    <ul>
+      <li>
+        The syntax used by JavaScript is known as a C-style syntax because of
+        its similarities with theC programming language
+      </li>
+      <li>
+        A JavaScript program is made up of a series of statements. Each
+        statement ends with a new line or semicolon. it’s considered best
+        practice to combine the two and write each statement on a new line,
+        terminated by a semi-colon, like so: <br />
 
-<body>
-  <h2>Reading</h2>
+        const message = 'Hello World!';<br />
+        alert(message);
+      </li>
+      <li>
+        JavaScript has a special operator called typeof for finding out the type
+        of a value. <br />
+        typeof 'hello' << 'string' typeof 10 << 'number' typeof true <<
+        'boolean' typeof { ninja: 'turtle' } << 'object' typeof [ 1, 2, 3 ] <<
+        'object' (All non-primitive data types return a type of 'object' .) "
+      </li>
 
-  
-</body>
+      <li>
+        Declaring and Assigning: JavaScript uses the keywords const and let to
+        declare variables. The keyword const is used when the variable will not
+        be reassigned to another value, whereas let is used if the variable
+        might be reassigned later in the program.
+      </li>
+      <li>
+        You can even declare and assign multiple variables at the same time if
+        you separate them with commas: let x = 3, y = 4, z = 5;
+      </li>
+      <li>
+        If the variable references a non-primitive data type, such as an array,
+        function or object, then using const will not make itimmutable. This
+        means the underlying data inside the objectcanchange (known
+        asmutatingthe object). We can see this in the example below: const name
+        = { value: 'Alexa' }; // an object name.value = 'Siri'; // change the
+        value <<' 'Siri'
+      </li>
+      <li>
+        Scope: Using const and let to declare variables means they areblock
+        scoped, so their value only exists inside the block they are declared
+        in. Scope is an important concept in programming. It refers to where a
+        constant or variable is accessible by the program. There are two common
+        scopes that are often referred to in programs: global scope and local
+        scope.
+      </li>
+      <li>
+        Any variable declared outside of a block is said to haveglobal scope.
+        This means it is accessible everywhere in the program. While this may
+        seem to be a good idea at first, it is not considered good practice.
+      </li>
+      <li>
+        In ES6, blocks can be used to create alocal scope. This means that any
+        variables defined inside a block using the let or const will only be
+        available inside that block and not be accessible outside of that block.
+        This is known as having local scope, as the variable is only visible in
+        the locality of the block.
+      </li>
 
+      <li>
+        Variables that start with an underscore generally refer to private
+        properties and methods, so it's best to not follow this convention for
+        your own variable names.Constant and variable names are case sensitive,
+        so ANSWER is different to Answer and answer .
+      </li>
+
+      <li>
+        Strings: Create a string literal by writing a group of characters inside
+        quote marks like this: 'hello' br If you want to use double quote marks
+        inside a string literal, you need to use single quote marks to enclose
+        the string. And if you want to use an apostrophe in your string, you
+        will need to use double quote marks to enclose the string, otherwise the
+        apostrophe will terminate the string, causing an error: <br />
+
+        'It's me' // causes an error "It’s me" // this works <br />
+        Another option is toescapethe quotation mark. You place a backslash
+        before the apostrophe so it appears as an apostrophe inside the string
+        instead of terminating the string <br />
+        'It\'s me'
+      </li>
+      <li>
+        The backslash is used to escape special characters in strings such as:
+        <br />
+
+        Single quote marks \' Double quote marks \" End of line \n Carriage
+        return \r Tab \t
+        <br />
+        If you want to actually write a backslash, you need to escape it with
+        another backslash: <br />
+
+        "This is a backslash \\" << "This is a backslash \"
+      </li>
+      <li>
+        We can access the properties of a string using dot notation. This
+        involves writing a dot followed by the property we are interested in.
+        For example, every string has a length property that tells us how many
+        characters are in the string:
+        <br />
+        const name = 'Alexa'; // declare and assign a variable << 'Alexa'
+        name.length; // retrieve the name variable's length property << 5;
+      </li>
+
+      <li>
+        An alternative notation you can use to access a primitive data type's
+        properties are square brackets: <br />
+
+        name['length']; // note the property name is in quote marks << 5
+      </li>
+      <li>
+        The concat() method can be used to concatenate two or more strings
+        together: <br />
+
+        'JavaScript'.concat('Ninja'); << 'JavaScriptNinja' 'Hello'.concat('
+        ','World','!'); << 'Hello World!'
+      </li>
+      <li>Template Literals:Template literals use the backtick character, ` , to deliminate the string, as shown in the example below: <br> `Hello!`; <br>They also allow interpolation of JavaScript code. This means that a JavaScript expression can be inserted inside a string and the result will be displayed
+
+      </li>
+
+
+
+
+
+    </ul>
+  </body>
 </html>
