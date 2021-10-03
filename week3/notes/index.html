@@ -5,28 +5,93 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notes| Week 3</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <title>Notes | Week 3</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 
 <body>
-  
+
   <h2>Notes</h2>
   <h3>Object methods, "this"</h3>
   <ul>
-    <li> <b>this</b> is a keyword whose value changes depending on how a function gets called. <br>There six different ways where this can take on new values. They are:</li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li> <b>this</b> is a keyword whose value changes depending on how a function gets called. <br>There six different
+      ways where this can take on new values. They are: <br>
+      this in global context <br>
+      this in object construction <br>
+      this in an object method <br>
+      this in a simple function <br>
+      this in an arrow function <br>
+      this in an event listener
+    </li>
+    <li><a href="../projects/calculator.html">Calculator function using "this"</a> The object calculator has three
+      methods: <br>
+
+      read() prompts for two values and saves them as object properties. <br>
+      sum() returns the sum of saved values. <br>
+      mul() multiplies saved values and returns the result.</li>
+    <li><a href="../projects/sayHi.html">User say Hi using "this"</a>if obj.f() is called, then this is obj during the
+      call of f. So it’s either user or admin</li>
+    <li> <b>This in a global context</b>
+      - When this is called outside of any function, in a global context, this defaults to the Window object in the
+      browser. Usually, you wouldn’t use this in a global context anyway, so the value of this here doesn’t really
+      matter. </li>
+    <li> <b>This in object construction</b> - When you create a new instance of an object with the new keyword, this
+      refers to the instance.</li>
+    <li>
+      <pre><code>function Human (age) {
+      this.age = age
+    }
+    
+    let greg = new Human(22)
+    let thomas = new Human(24)
+    
+    console.log(greg) // this.age = 22
+    console.log(thomas) // this.age = 24</code></pre>
+    </li>
+    <li> You can see that greg is an instance of Human in the code above. Now, whenever you reference greg, you won’t
+      accidentally get thomas. So, setting this to be the instance makes perfect sense.</li>
+    <li><b>This in an object method</b> - **Methods = functions.this within any method refers to the object itself. <br>
+      Since this refers to the object, you can use methods to get the instance of an object, like this:</li>
+    <li>
+      <pre><code>
+      function Human (name) {
+      return {
+        name,
+        getName() {
+          return this.name
+        }
+      }
+    }
+    
+    const zell = new Human('Zell')
+    const vincy = new Human('Vincy')
+    
+    console.log(zell.getName()) // Zell</code></pre>
+    </li>
+    <li>In these two object contexts, you can see that the changed value of this lets you get the right instance, which
+      is the basis for Object-oriented programming. </li>
+    <li><b>This in a simple function</b> - On browsers, this is always set to Window in a simple function. The same is
+      true even if you call a simple function in an object method.</li>
+    <li>
+      <pre><code>
+      const o = {
+        doSomethingLater () {
+          const self = this
+          setTimeout(function() {
+            self.speakLeet()
+          }, 1000)
+        },
+        speakLeet() {
+          console.log(`1337 15 4W350M3`)
+        }
+      }
+    </code></pre>
+    </li>
+    <li>One quick fix is to create a variable that stores the reference to the this. This variable is often called self
+      or that.</li>
   </ul>
 
 
-<script src="/wdd330/js/main.js"></script>
 </body>
+
 </html>
