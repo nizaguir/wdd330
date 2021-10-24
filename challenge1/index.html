@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Do List | Challenge 1</title>
+  <meta name="description" content="This is a todo list for coding challenge 1 in wdd330" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:ital,wght@1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="todo.css">
+  <title>TO DO App | Challenge 1</title>
 </head>
+
 <body>
-  <h1>To Do List</h1>
-  
+  <header>
+    <h1>TO DO</h1>
+  </header>
+
+
+  <main>
+    <ul class="todos"></ul>
+    <div class="card stat">
+      <p class="corner"><span id="items-left">0</span> items left</p>
+      <div class="filter">
+        <button id="all" class="on">All</button>
+        <button id="active">Active</button>
+        <button id="completed">Completed</button>
+      </div>
+    </div>
+
+    <div class="card add">
+      <div class="txt-container">
+        <label for="addt">Create to do</label>
+        <input type="text" class="txt-input" placeholder="Add a new todo..." id="addt" />
+      </div>
+      <div class="cb-container">
+        <button id="add-btn">+</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="./todo.js"></script>
 </body>
+
 </html>
