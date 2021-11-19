@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 10 Notes</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <h2>Using Fetch</h2>
+  <li>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as
+    requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch
+    resources asynchronously across the network.</li>
+
+  <p>The fetch specification differs from jQuery.ajax() in the following significant ways:</p>
+  <li>
+    The Promise returned from fetch() won’t reject on HTTP error status even if the response is an HTTP 404 or 500.
+    Instead, as soon as the server responds with headers, the Promise will resolve normally (with the ok property of the
+    response set to false if the response isn’t in the range 200–299), and it will only reject on network failure or if
+    anything prevented the request from completing.
+  <li>
+    fetch() won’t send cross-origin cookies unless you set the credentials init option. (Since April 2018. The spec
+    changed the default credentials policy to same-origin. Firefox changed since 61.0b13.)</li>
+  </li>
+  <code>fetch('http://example.com/movies.json')
+    .then(response => response.json())
+    .then(data => console.log(data));
+
+  </code>
+  <p>Uploading JSON data</p>
+  <li>Use fetch() to POST JSON-encoded data.</li>
+  <code>const data = { username: 'example' };
+
+    fetch('https://example.com/profile', {
+    method: 'POST', // or 'PUT'
+    headers: {
+    'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+    console.log('Success:', data);
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    });
+  </code>
+
+  <h2>Client-side form validation</h2>
+  <li>Client-side validation is an initial check and an important feature of good user experience; by catching invalid
+    data on the client-side, the user can fix it straight away. If it gets to the server and is then rejected, a
+    noticeable delay is caused by a round trip to the server and then back to the client-side to tell the user to fix
+    their data. However, client-side validation should not be considered an exhaustive security measure!</li>
+  <p>There are three main reasons:</p>
+  <li>We want to get the right data, in the right format. Our applications won't work properly if our users' data is
+    stored in the wrong format, is incorrect, or is omitted altogether.</li>
+  <li>We want to protect our users' data. Forcing our users to enter secure passwords makes it easier to protect their
+    account information.</li>
+  <li>We want to protect ourselves. There are many ways that malicious users can misuse unprotected forms to damage the
+    application </li>
+  <p>Different types of client-side validation</p>
+  <li>Built-in form validation uses HTML5 form validation features, which we've discussed in many places throughout this
+    module. This validation generally doesn't require much JavaScript. Built-in form validation has better performance
+    than JavaScript, but it is not as customizable as JavaScript validation.</li>
+  <li>JavaScript validation is coded using JavaScript. This validation is completely customizable, but you need to
+    create it all (or use a library).</li>
+
+
+
+
+
+</body>
+
+</html>
